@@ -97,9 +97,24 @@ changed since their last compilation.
   operation. Once everything is compiling, if you edit one file and recompile,
   it will compile quickly.
   
+##Prerequisites##
+
+- Ruby 1.8.7 and text/highlight gem
+
+```
+> [sudo] apt-get install ruby
+> [sudo] gem install text-highlight
+```
+
+- OCaml (3.09+) and ocamlfind
+
+```
+> [sudo] apt-get install ocaml
+> [sudo] apt-get install ocaml-findlib
+```
+
   
-\> obake --help
-------------
+## \> obake \-\-help ##
 
 
 <pre>
