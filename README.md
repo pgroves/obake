@@ -10,7 +10,8 @@ the compilation fails if any little thing is wrong, so if you make a small
 change to a module, and want to test it, you have to fix a bunch of compiler
 errors before Make will build you an executable. This can be a major annoyance
 when making significant changes to a subsystem that other systems compile
-against.
+against. This is a mismatch between build systems designed to build and deploy
+the contents of a code repository and the workflow of software developers.
 
 This problem is normally solved by an IDE, which will often let you run a unit
 test as long as it's direct dependencies can be built. But in ocaml there is no
@@ -27,7 +28,8 @@ changed since their last compilation.
 ##Quick Start (Example)##
 
 - Generate an obake.yml configuration file for your project at the root of the
-  project tree.  
+  project tree. 
+
       > cd example-ocaml-project
       > obake --generate-config
       generating config file: './obake.yml'
@@ -50,25 +52,30 @@ changed since their last compilation.
         /vc/oss/obake/dev/example-ocaml-project/src/Color.cmi ,
         /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmo ,
         /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmi 
-       )
+      )
 
-- Can always clean up the built files and binaries
+- Can always clean up the built files and binaries.
 
-      > obake -c
+  ```
+  > obake -c
+  ```
 
-- Compile the Porche module into a machine code executable
+- Compile the Porche module into a machine code executable.
+  
+  ```
+  > obake -m -e Porsche.ml
 
-      > obake -m -e Porsche.ml
-      Stale Targets:
-      ( 
-        /vc/oss/obake/dev/example-ocaml-project/src/Color.cmx ,
-        /vc/oss/obake/dev/example-ocaml-project/src/Color.cmi ,
-        /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmx ,
-        /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmi 
-       )
-       
-       > ls ../bin/
-       Porsche.bin
+  Stale Targets:
+  ( 
+    /vc/oss/obake/dev/example-ocaml-project/src/Color.cmx ,
+    /vc/oss/obake/dev/example-ocaml-project/src/Color.cmi ,
+    /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmx ,
+    /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmi 
+  )
+
+  > ls ../bin/
+  Porsche.bin
+  ```
 
 ##Pitfalls##
 
@@ -91,7 +98,10 @@ changed since their last compilation.
   it will compile quickly.
   
   
-##> obake --help##  
+\> obake --help
+------------
+
+
 <pre>
        
 
