@@ -30,10 +30,12 @@ changed since their last compilation.
 - Generate an obake.yml configuration file for your project at the root of the
   project tree. 
 
+```
       > cd example-ocaml-project
       > obake --generate-config
       generating config file: './obake.yml'
       done.
+```
 
 - Change the name of the sources directory if necessary in the yml file. Add
   any package dependencies (the obake.yml file tells you how).
@@ -44,6 +46,7 @@ changed since their last compilation.
   compiled are somewhat subtle. See the docs for the -b, -m, and -o options for
   more info.
 
+```
       > cd src
       > obake Porsche.ml
 
@@ -53,6 +56,7 @@ changed since their last compilation.
         /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmo ,
         /vc/oss/obake/dev/example-ocaml-project/src/Porsche.cmi 
       )
+```
 
 - Can always clean up the built files and binaries.
 
